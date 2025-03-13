@@ -6,14 +6,23 @@ Project Made by Recio's Group for MIDTERM GROUP RESEARCH PROJECT ITEW2 CLIENT/SE
 Group Members:
 
 Recio, Joaquin Aaron P. - Group Leader/Lead Programmer
+
 Alvarez, Kian Clark P.
+
 Cantalejo, Blessreal S.
+
 Catchuela, John Eric L.
+
 Dela Cruz, Kim Francis O.
+
 Del Mundo, Klarenz V.
+
 Dela Torre, Mark Anthony A.
+
 Estrella, Prince Rodni T. - Co-Lead Programmer
+
 Fortin, Cheryll Anne V.
+
 Rosario, Al-jay C.
 
 Documentation Video: [TO BE POSTED ON YOUTUBE]
