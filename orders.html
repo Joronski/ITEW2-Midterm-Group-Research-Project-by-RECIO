@@ -1,0 +1,235 @@
+<!-- 
+    Project Made by Recio's Group for MIDTERM GROUP RESEARCH PROJECT ITEW2 CLIENT/SERVER SIDE SCRIPTING
+
+    Group Members:
+
+    Recio, Joaquin Aaron P. - Group Leader/Lead Programmer
+    Alvarez, Kian Clark P.
+    Cantalejo, Blessreal S.
+    Catchuela, John Eric L.
+    Dela Cruz, Kim Francis O.
+    Del Mundo, Klarenz V.
+    Dela Torre, Mark Anthony A.
+    Estrella, Prince Rodni T. - Co-Lead Programmer
+    Fortin, Cheryll Anne V.
+    Rosario, Al-jay C.
+
+    RECIO's Group © 2025 | ITEW2 - Client/Server Side Scripting
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reshie | Orders</title>
+
+        <!-- Favicon -->
+        <link rel="android-chrome" sizes="512x512" href="/assets/favicon_io/android-chrome-512x512.png">
+        <link rel="android-chrome" sizes="192x192" href="/assets/favicon_io/android-chrome-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon_io/favicon.ico">
+        <link rel="manifest" href="/assets/favicon_io/site.webmanifest">
+
+        <!-- External CSS Link -->
+        <link rel="stylesheet" href="css/styles.css">
+
+        <!-- Google Fonts Integration -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <!-- Integrating jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- Header Section -->
+        <header>
+            <div class="container">
+                <div class="reshie-logo">
+                    <a href="index.html">
+                        <img src="assets/favicon_io/android-chrome-192x192.png" alt="Reshie Logo">
+                        <h1>Reshie</h1>
+                    </a>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <input type="search" id="product-search" placeholder="Mechanical Keyboard">
+                        <button type="button" id="search-button">Search</button>
+                    </div>
+
+                    <div class="user-actions">
+                        <a href="cart.html" class="cart-icon">
+                            <span class="cart-count">0</span>
+                        </a>
+
+                        <div class="user-profile">
+                            <button id="user-menu-toggle">My Account</button>
+                            <div class="dropdown-menu" id="user-dropdown">
+                                <a href="profile.html">Profile</a>
+                                <a href="orders.html">Orders</a>
+                                <a href="#" id="logout-button">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content of Order Section -->
+        <main>
+            <section class="orders-section">
+                <div class="container">
+                    <h1>My Orders</h1>
+    
+                    <div class="orders-filter">
+                        <div class="search-orders">
+                            <input type="search" id="order-search" placeholder="Search orders...">
+                            <button type="button" id="search-orders-button">Search</button>
+                        </div>
+    
+                        <div class="filter-options">
+                            <label for="order-status-filter">Status: </label>
+                            <select id="order-status-filter">
+                                <option value="">--- All Orders ---</option>
+                                <option value="processing">Processing</option>
+                                <option value="shipped">Shipped</option>
+                                <option value="delivered">Delivered</option>
+                                <option value="returned">Returned</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+    
+                            <label for="order-date-filter">Time Period: </label>
+                            <select id="order-date-filter">
+                                <option value="">--- All Time ---</option>
+                                <option value="30">Last 30 Days</option>
+                                <option value="90">Last 3 Months</option>
+                                <option value="100">Last 6 Months</option>
+                                <option value="365">Last Year</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="orders-list">
+                        <!-- Orders will be dynamically added here -->
+                        <p id="no-orders-message" style="display: none;">You don't have any orders yet. <a href="products.html">Start shopping</a></p>
+                    </div>
+    
+                    <div class="pagination" id="orders-pagination">
+                        <!-- Pagination controlls will be dynamically added here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Section -->
+        <footer>
+            <div class="container">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <h3>Reshie</h3>
+                        <p>Your one-stop destination for all your shopping needs.</p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Connect With Us</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link">Facebook</a>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">Instagram</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Contact Info</h3>
+                        <address>
+                            Pamantasan ng Cabuyao,
+                            Banay-Banay, City of Cabuyao, Laguna 4025,
+                            Phone: (+63) 123 456 7890
+                            Email: reshie@gmail.com
+                        </address>
+                    </div>
+                </div>
+
+                <div class="copyright">&copy; 2025 Reshie | All Rights Reserved</div>
+            </div>
+        </footer>
+
+        <!-- Order Detail Modal -->
+        <div class="modal" id="order-detail-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+
+                <div id="order-detail-container">
+                    <!-- Order details will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Return Request Modal -->
+        <div class="modal" id="return-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+
+                <h2>Request Return</h2>
+
+                <form id="return-form">
+                    <div class="form-group">
+                        <label for="return-reason">Reason of Return: </label>
+                        <select id="rerturn-reason" required>
+                            <option value="">--- Select a Reason ---</option>
+                            <option value="wrong-item">Wrong item received</option>
+                            <option value="defective">Item is defective</option>
+                            <option value="damaged">Item was damaged</option>
+                            <option value="not_as_described">Item not as described</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="other-reason-container" style="display: none;">
+                        <label for="other-reason">Please Specify: </label>
+                        <textarea id="other-reason"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="return-comments">Additional Comments: </label>
+                        <textarea id="return-comments"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit">Submit Return Request</button>
+                    </div>
+
+                    <div class="form-feedback" id="return-feedback"></div>
+                </form>
+            </div>
+        </div>
+
+        <!-- External JavaScript Files Implemented -->
+        <script src="js/#"></script> <!-- Integrate app.js -->
+        <script src="js/#"></script> <!-- Integrate auth.js -->
+        <script src="js/#"></script> <!-- Integrate orders.js -->
+    </body>
+</html>
