@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reshie | Products</title>
+
+        <!-- Favicon -->
+        <link rel="android-chrome" sizes="512x512" href="/assets/favicon_io/android-chrome-512x512.png">
+        <link rel="android-chrome" sizes="192x192" href="/assets/favicon_io/android-chrome-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon_io/favicon.ico">
+        <link rel="manifest" href="/assets/favicon_io/site.webmanifest">
+
+        <!-- External CSS Link -->
+        <link rel="stylesheet" href="css/styles.css">
+
+        <!-- Google Fonts Integration -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <!-- Integrating jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- Header Section -->
+        <header>
+            <div class="container">
+                <div class="reshie-logo">
+                    <a href="index.html">
+                        <img src="assets/favicon_io/android-chrome-192x192.png" alt="Reshie Logo">
+                        <h1>Reshie</h1>
+                    </a>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <input type="search" id="product-search" placeholder="Mechanical Keyboard">
+                        <button type="button" id="search-button">Search</button>
+                    </div>
+
+                    <div class="user-actions">
+                        <a href="cart.html" class="cart-icon">
+                            <span class="cart-count">0</span>
+                        </a>
+
+                        <div class="user-profile">
+                            <button id="user-menu-toggle">My Account</button>
+                            <div class="dropdown-menu" id="user-dropdown">
+                                <a href="profile.html">Profile</a>
+                                <a href="orders.html">Orders</a>
+                                <a href="#" id="logout-button">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Product Content Section -->
+        <main>
+            <section class="products-section">
+                <div class="container">
+                    <h1>All Products</h1>
+
+                    <div class="product-filters">
+                        <div class="search-filter">
+                            <input type="search" id="product-search-page" placeholder="Monitor">
+                            <button type="button" id="search-page-button">Search</button>
+                        </div>
+                    </div>
+
+                    <div class="category-filter">
+                        <label for="category-select">Category: </label>
+                        <select id="category-select">
+                            <option value="">-- All Categories --</option>
+                            <!-- Categories will be dynamically added here -->
+                        </select>
+                    </div>
+
+                    <div class="price-filter">
+                        <label for="price-range">Price Range: </label>
+                        <input type="range" id="price-range" min="0" max="60000" step="10">
+                        <span id="price-display">₱0 - ₱60000</span>
+                    </div>
+
+                    <div class="sort-options">
+                        <label for="sort-select">Sort By: </label>
+                        <select id="sort-select">
+                            <option value="name-asc">Name (A-Z)</option>
+                            <option value="name-desc">Name (Z-A)</option>
+                            <option value="price-asc">Price (Low to High)</option>
+                            <option value="price-desc">Price (High to Low)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-grid" id="products-container">
+                    <!-- Products will be dynamically added here -->
+                
+                </div>
+
+                <div class="pagination" id="products-pagination">
+                    <!-- Pagination Controls will be dynamically added here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Section -->
+        <footer>
+            <div class="container">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <h3>Reshie</h3>
+                        <p>Your one-stop destination for all your shopping needs.</p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Connect With Us</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link">Facebook</a>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">Instagram</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Contact Info</h3>
+                        <address>
+                            Pamantasan ng Cabuyao,
+                            Banay-Banay, City of Cabuyao, Laguna 4025,
+                            Phone: (+63) 123 456 7890
+                            Email: reshie@gmail.com
+                        </address>
+                    </div>
+                </div>
+
+                <div class="copyright">&copy; 2025 Reshie | All Rights Reserved</div>
+            </div>
+        </footer>
+
+        <!-- Login/Register Modal -->
+        <div class="modal" id="auth-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="login">Login</button>
+                    <button class="tab-button" data-tab="register">Register</button>
+                </div>
+
+                <div class="tab-content" id="login-tab">
+                    <form id="login-form">
+                        <h1>Welcome Back to Reshie!</h1>
+                        <h2>Login</h2>
+
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="login-password">Password</div>
+                            <input type="password" id="login-password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit">Login</button>
+                        </div>
+
+                        <div class="form-feedback" id="login-feedback"></div>
+                    </form>
+                </div>
+
+                <div class="tab-content" id="register-tab" style="display: none;">
+                    <form id="register-form">
+                        <h1>Create Account on Reshie</h1>
+                        <h2>Register</h2>
+
+                        <div class="form-group">
+                            <label for="register-name">Full Name</label>
+                            <input type="text" id="register-name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-password">Password</label>
+                            <input type="password" id="register-password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-confirm-password">Confirm Password</label>
+                            <input type="password" id="register-confirm-password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="register-admin"> Register as Store Admin
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit">Register</button>
+                        </div>
+
+                        <div class="form-feedback" id="register-feedback"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Detail Modal -->
+        <div class="modal" id="product-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+
+                <div id="product-detail-container">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- External JavaScript Files Implemented -->
+        <script src="js/#"></script>
+        <script src="js/#"></script>
+        <script src="js/#"></script>
+    </body>
+</html>
