@@ -1,0 +1,224 @@
+<!-- 
+    Project Made by Recio's Group for MIDTERM GROUP RESEARCH PROJECT ITEW2 CLIENT/SERVER SIDE SCRIPTING
+
+    Group Members:
+
+    Recio, Joaquin Aaron P. - Group Leader/Lead Programmer
+    Alvarez, Kian Clark P.
+    Cantalejo, Blessreal S.
+    Catchuela, John Eric L.
+    Dela Cruz, Kim Francis O.
+    Del Mundo, Klarenz V.
+    Dela Torre, Mark Anthony A.
+    Estrella, Prince Rodni T. - Co-Lead Programmer
+    Fortin, Cheryll Anne V.
+    Rosario, Al-jay C.
+
+    RECIO's Group © 2025 | ITEW2 - Client/Server Side Scripting
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reshie | Contact Us</title>
+
+        <!-- Favicon -->
+        <link rel="android-chrome" sizes="512x512" href="/assets/favicon_io/android-chrome-512x512.png">
+        <link rel="android-chrome" sizes="192x192" href="/assets/favicon_io/android-chrome-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon_io/favicon.ico">
+        <link rel="manifest" href="/assets/favicon_io/site.webmanifest">
+
+        <!-- External CSS Link -->
+        <link rel="stylesheet" href="css/styles.css">
+
+         <!-- Google Fonts Integration -->
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+ 
+         <!-- Integrating jQuery -->
+         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- Header Section -->
+        <header>
+            <div class="container">
+                <div class="reshie-logo">
+                    <a href="index.html">
+                        <img src="assets/favicon_io/android-chrome-192x192.png" alt="Reshie Logo">
+                        <h1>Reshie</h1>
+                    </a>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <input type="search" id="product-search" placeholder="Mechanical Keyboard">
+                        <button type="button" id="search-button">Search</button>
+                    </div>
+
+                    <div class="user-actions">
+                        <a href="cart.html" class="cart-icon">
+                            <span class="cart-count">0</span>
+                        </a>
+
+                        <div class="user-profile">
+                            <button id="user-menu-toggle">My Account</button>
+                            <div class="dropdown-menu" id="user-dropdown">
+                                <a href="profile.html">Profile</a>
+                                <a href="orders.html">Orders</a>
+                                <a href="#" id="logout-button">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Contact Hero Section -->
+            <section class="contact-hero">
+                <div class="container">
+                    <h1>Contact Us</h1>
+                    <p>We'd Love to here from you!</p>
+                </div>
+            </section>
+
+            <!-- Contact Information Section -->
+            <section class="contact-info">
+                <div class="container">
+                    <div class="contact-grid">
+                        <div class="contact-card">
+                            <h3>Visit Us</h3>
+                            <address>
+                                Pamantasan ng Cabuyao,<br>
+                                Banay-Banay, City of Cabuyao,<br>
+                                Laguna 4025, Philippines
+                            </address>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>Call Us</h3>
+                            <p>Phone: (+63) 123 456 7890</p>
+                            <p>Customer Support: (+63) 123 456 7891</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>Email Us</h3>
+                            <p>General Inquiries: <a href="mailto:reshie@gmail.com">reshie@gmail.com</a></p>
+                            <p>Support Inquiries: <a href="mailto:support@reshie.com">support@reshie.com</a></p>
+                            <p>Business Inquiries: <a href="mailto:business@reshie.com">business@reshie.com</a></p>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>Follow Us</h3>
+                            <div class="social-links-contact">
+                                <a href="#" class="social-link">Facebook</a>
+                                <a href="#" class="social-link">X</a>
+                                <a href="#" class="social-link">Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Business Hours Section -->
+            <section class="business-hours">
+                <div class="container">
+                    <h2>Our Business Hours</h2>
+
+                    <div class="hours-container">
+                        <div class="hours-item">
+                            <div class="day">Monday - Friday</div>
+                            <div class="time">8:00 AM - 5:00 PM</div>
+                        </div>
+                        
+                        <div class="hours-item">
+                            <div class="day">Saturday</div>
+                            <div class="time">10:00 AM - 5:00 PM</div>
+                        </div>
+                        
+                        <div class="hours-item">
+                            <div class="day">Sunday</div>
+                            <div class="time">Closed</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Map Section -->
+            <section class="map-section">
+                <div class="container">
+                    <h2>Find Us On The Map</h2>
+                    <div class="map-container">
+                        <!-- Replace with actual map embed code or image -->
+                        <div class="map-placeholder">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3866.892081919822!2d121.13128317600739!3d14.259515486187432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d88258da3383%3A0x3db6c2402700f58f!2sPamantasan%20ng%20Cabuyao!5e0!3m2!1sen!2sph!4v1742130522470!5m2!1sen!2sph" width="600" height="450" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Section -->
+        <footer>
+            <div class="container">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <h3>Reshie</h3>
+                        <p>Your one-stop destination for all your shopping needs.</p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="products.html">Products</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Connect With Us</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link">Facebook</a>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">Instagram</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Contact Info</h3>
+                        <address>
+                            Pamantasan ng Cabuyao,
+                            Banay-Banay, City of Cabuyao, Laguna 4025,
+                            Phone: (+63) 123 456 7890
+                            Email: reshie@gmail.com
+                        </address>
+                    </div>
+                </div>
+
+                <div class="copyright">&copy; 2025 Reshie | All Rights Reserved</div>
+            </div>
+        </footer>
+
+        <!-- External JavaScript Files -->
+        <script src="js/#"></script> <!-- Integrate app.js -->
+        <script src="js/#"></script> <!-- Integrate auth.js -->
+    </body>
+</html>
