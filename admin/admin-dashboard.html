@@ -46,6 +46,7 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     </head>
     <body class="admin-panel">
+        <!-- Admin Header -->
         <header class="admin-header">
             <div class="container">
                 <div class="logo">
@@ -59,12 +60,66 @@
                     <ul>
                         <li><a href="admin-dashboard.html">Dashboard</a></li>
                         <li><a href="admin-products.html">Products</a></li>
-                        <li><a href="../orders.html">Orders</a></li>
-                        <li><a href="../customers"></a></li>
-                        <li><a href=""></a></li>
+                        <li><a href="admin-orders.html">Orders</a></li>
+                        <li><a href="admin-customers.html">Customers</a></li>
                     </ul>
                 </nav>
+
+                <div class="admin-profile">
+                    <div class="admin-profile-img">
+                        <img src="../assets/avatar/admin-avatar.jpg" alt="Admin Profile">
+                    </div>
+                    <div class="admin-dropdown">
+                        <button class="admin-dropdown-btn">Admin <span class="arrow-down">▼</span></button>
+
+                        <div class="admin-dropdown-content">
+                            <a href="admin-profile.html">My Profile</a>
+                            <a href="../index.html" id="admin-logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
+
+        <!-- Admin Main Content -->
+        <main class="admin-main">
+            <div class="container">
+                <!-- Sidebar -->
+                <aside class="admin-sidebar">
+                    <nav class="sidebar-nav">
+                        <ul>
+                            <li><a href="admin-dashboard.html" class="active">Dashboard Overview</a></li>
+                            <li>
+                                <a href="admin-products.html">Product Management</a>
+                                <ul class="submenu">
+                                    <li><a href="admin-products.html">All Products</a></li>
+                                    <li><a href="admin-product-add.html">Add New Product</a></li>
+                                    <li><a href="admin-categories.html">Categories</a></li>
+                                    <li><a href="admin-inventory.html">Inventory</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="admin-orders.html">Order Management</a>
+                                <ul class="submenu">
+                                    <li><a href="admin-orders.html">All Orders</a></li>
+                                    <li><a href="admin-pending-orders.html">Pending Orders</a></li>
+                                    <li><a href="admin-shipped-orders.html">Shipped Orders</a></li>
+                                    <li><a href="admin-completed-orders.html">Completed Orders</a></li>
+                                    <li><a href="admin-returns.html">Returns & Refunds</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="admin-customers.html">Customer Management</a>
+                                <ul class="submenu">
+                                    <li><a href="admin-customers.html">All Customers</a></li>
+                                    <li><a href="admin-customer-add.html">Add New Customer</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="admin-settings.html">Store Settings</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+            </div>
+        </main>
     </body>
 </html>
