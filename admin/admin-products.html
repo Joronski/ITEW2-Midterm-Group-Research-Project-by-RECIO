@@ -1,0 +1,313 @@
+<!-- 
+    Project Made by Recio's Group for MIDTERM GROUP RESEARCH PROJECT ITEW2 CLIENT/SERVER SIDE SCRIPTING
+
+    Group Members:
+
+    Recio, Joaquin Aaron P. - Group Leader/Lead Programmer
+    Alvarez, Kian Clark P.
+    Cantalejo, Blessreal S.
+    Catchuela, John Eric L.
+    Dela Cruz, Kim Francis O.
+    Del Mundo, Klarenz V.
+    Dela Torre, Mark Anthony A.
+    Estrella, Prince Rodni T. - Co-Lead Programmer
+    Fortin, Cheryll Anne V.
+    Rosario, Al-jay C.
+
+    RECIO's Group © 2025 | ITEW2 - Client/Server Side Scripting
+-->
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reshie | Admin Product Management</title>
+
+        <!-- Favicon -->
+        <link rel="android-chrome" sizes="512x512" href="/assets/favicon_io/android-chrome-512x512.png">
+        <link rel="android-chrome" sizes="192x192" href="/assets/favicon_io/android-chrome-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon_io/favicon.ico">
+        <link rel="manifest" href="/assets/favicon_io/site.webmanifest">
+
+        <!-- External CSS -->
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/admin.css">
+
+        <!-- Google Fonts Integration -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <!-- Integrating jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    </head>
+    <body class="admin-panel">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="admin-dashboard.html">
+                        <img src="../assets/favicon_io/android-chrome-192x192.png" alt="Reshie Logo">
+                        <h1>Reshie Admin</h1>
+                    </a>
+                </div>
+
+                <nav class="admin-nav">
+                    <ul>
+                        <li><a href="admin-dashboard.html">Dashboard</a></li>
+                        <li><a href="admin-products.html">Products</a></li>
+                        <li><a href="admin-orders.html">Orders</a></li>
+                        <li><a href="admin-customers.html">Customers</a></li>
+                    </ul>
+                </nav>
+
+                <div class="admin-profile">
+                    <img src="../assets/avatar/admin-avatar.jpg" alt="Admin Profile">
+                    <button class="admin-dropdown-btn">Admin ▼</button>
+                    <div class="admin-dropdown-content">
+                        <a href="admin-profile.html">Profile</a>
+                        <a href="../index.html" id="admin-logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Admin Content -->
+        <main class="admin-main">
+            <div class="container">
+                <!-- Sidebar -->
+                <aside class="admin-sidebar">
+                    <nav class="sidebar-nav">
+                        <ul>
+                            <li><a href="admin-dashboard.html">Dashboard</a></li>
+                            <li><a href="admin-products.html" class="active">Product Management</a></li>
+                            <li><a href="admin-orders.html">Order Management</a></li>
+                            <li><a href="admin-customers.html">Customer Management</a></li>
+                            <li><a href="admin-reports.html">Reports & Analytics</a></li>
+                            <li><a href="admin-settings.html">Settings</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- Product Management Content -->
+                <section class="admin-content">
+                    <div class="content-header">
+                        <h2>Product Management</h2>
+
+                        <div class="action-buttons">
+                            <button id="add-product-btn" class="primary-btn">+ Add Product</button>
+                            <button id="import-products-btn" class="secondary-btn">Import Products</button>
+                            <button id="export-products-btn" class="secondary-btn">Export Products</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Filter and Search -->
+                    <div class="product-filters">
+                        <div class="search-container">
+                            <input type="text" id="product-search" placeholder="Search products...">
+                            <button id="search-btn">Search</button>
+                        </div>
+
+                        <div class="filter-options">
+                            <select id="category-filter">
+                                <option value="">--- All Categories ---</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="home">Home & Kitchen</option>
+                                <option value="books">Books</option>
+                                <option value="toys">Toys & Games</option>
+                            </select>
+
+                            <select id="status-filter">
+                                <option value="">--- All Status ---</option>
+                                <option value="in-stock">In Stock</option>
+                                <option value="low-stock">Low Stock</option>
+                                <option value="out-of-stock">Out of Stock</option>
+                            </select>
+
+                            <select id="sort-by">
+                                <option value="name-asc">Name (A-Z)</option>
+                                <option value="name-desc">Name (Z-A)</option>
+                                <option value="price-low">Price (Low to High)</option>
+                                <option value="price-high">Price (High to Low)</option>
+                                <option value="stock-low">Stock (Low to High)</option>
+                                <option value="stock-high">Stock (High to Low)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Product List Table -->
+                    <div class="table-container">
+                        <table class="product-table">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" id="select-all-products"></th>
+                                    <th>ID</th>
+                                    <th>Image</th>
+                                    <th>Product Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="product-list">
+                                <!-- Sample Product Data - Will be dynamically generated -->
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="pagination-btn" id="prev-page" disabled>Previous</button>
+                        
+                        <div class="page-numbers">
+                            <button class="page-number active">1</button>
+                            <button class="page-number">2</button>
+                            <button class="page-number">3</button>
+                            <span class="page-ellipsis">...</span>
+                            <button class="page-number">10</button>
+                        </div>
+
+                        <button class="pagination-btn" id="next-page">Next</button>
+                    </div>
+
+                    <!-- Bulk Action Bar -->
+                    <div class="bulk-actions">
+                        <span id="selected-count">0 products selected</span>
+
+                        <div class="bulk-buttons">
+                            <button id="bulk-delete" disabled>Delete Selected</button>
+                            <button id="bulk-category" disabled>Change Category</button>
+                            <button id="bulk-status" disabled>Change Status</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Add/Edit Product Model -->
+        <div id="product-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">Add New Product</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="product-form">
+                        <div class="form-group">
+                            <label for="product-name">Product Name: </label>
+                            <input type="text" id="product-name" name="product-name" required>
+                        </div>
+                    </form>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-category">Category: </label>
+                            <select id="product-category" name="product-category" required>
+                                <option value="">Select Category</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="home">Home & Kitchen</option>
+                                <option value="books">Books</option>
+                                <option value="toys">Toys & Games</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-price">Price (₱): </label>
+                            <input type="number" id="product-price" name="product-price" step="0.01" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-stock">Stock Quantity: </label>
+                            <input type="number" id="product-stock" name="product-stock" min="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-sku">Stock Keeping Unit: </label>
+                            <input type="text" id="product-sku" name="product-sku">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-description">Description: </label>
+                        <textarea name="product-description" id="product-description" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-images">Product Images</label>
+                        <div class="image-upload-container">
+                            <div class="image-preview">
+                                <div class="image-placeholder">
+                                    <span class="add-image-icon">+</span>
+                                    <span>Add Image</span>
+                                </div>
+                            </div>
+
+                            <input type="file" id="product-images" name="product-images" multiple accept="image/*">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-weight">Weight (kg): </label>
+                            <input type="number" id="product-weight" name="product-weight" step="0.01" min="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-dimensions">Dimensions (L x W x H cm): </label>
+                            <input type="text" id="product-dimensions" name="product-dimensions" placeholder="e.g. 10 x 5 x 2">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Product Attributes</label>
+
+                        <div id="attributes-container">
+                            <div class="attribute-row">
+                                <input type="text" class="attribute-name" placeholder="Attribute Name (e.g. Color)">
+                                <input type="text" class="attribute-value" placeholder="Attribute Value (e.g. Red, Blue, Green)">
+                                <button type="button" class="remove-attribute-btn">×</button>
+                            </div>
+                        </div>
+
+                        <button type="button" id="add-attribute-btn" class="secondary-btn">+ Add Attribute</button>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-status">Product Status: </label>
+                            <select name="product-status" id="product-status">
+                                <option value="active">Active</option>
+                                <option value="draft">Draft</option>
+                                <option value="archived">Archived</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-featured">Featured Product</label>
+
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="product-featured" name="product-featured">
+                                <label for="product-featured"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

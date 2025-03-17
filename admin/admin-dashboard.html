@@ -33,7 +33,7 @@
         <link rel="icon" type="image/x-icon" href="/assets/favicon_io/favicon.ico">
         <link rel="manifest" href="/assets/favicon_io/site.webmanifest">
 
-        <!-- External CSS Link -->
+        <!-- External CSS -->
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/admin.css">
 
@@ -50,9 +50,9 @@
         <header class="admin-header">
             <div class="container">
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="assets/favicon_io/android-chrome-192x192.png" alt="Reshie Logo">
-                        <h1>Reshie</h1>
+                    <a href="admin-dashboard.html">
+                        <img src="../assets/favicon_io/android-chrome-192x192.png" alt="Reshie Logo">
+                        <h1>Reshie Admin</h1>
                     </a>
                 </div>
 
@@ -66,60 +66,132 @@
                 </nav>
 
                 <div class="admin-profile">
-                    <div class="admin-profile-img">
-                        <img src="../assets/avatar/admin-avatar.jpg" alt="Admin Profile">
-                    </div>
-                    <div class="admin-dropdown">
-                        <button class="admin-dropdown-btn">Admin <span class="arrow-down">▼</span></button>
-
-                        <div class="admin-dropdown-content">
-                            <a href="admin-profile.html">My Profile</a>
-                            <a href="../index.html" id="admin-logout">Logout</a>
-                        </div>
+                    <img src="../assets/avatar/admin-avatar.jpg" alt="Admin Profile">
+                    <button class="admin-dropdown-btn">Admin ▼</button>
+                    <div class="admin-dropdown-content">
+                        <a href="admin-profile.html">Profile</a>
+                        <a href="../index.html" id="admin-logout">Logout</a>
                     </div>
                 </div>
             </div>
         </header>
 
-        <!-- Admin Main Content -->
+        <!-- Main Admin Content -->
         <main class="admin-main">
             <div class="container">
+                
                 <!-- Sidebar -->
                 <aside class="admin-sidebar">
                     <nav class="sidebar-nav">
                         <ul>
-                            <li><a href="admin-dashboard.html" class="active">Dashboard Overview</a></li>
-                            <li>
-                                <a href="admin-products.html">Product Management</a>
-                                <ul class="submenu">
-                                    <li><a href="admin-products.html">All Products</a></li>
-                                    <li><a href="admin-product-add.html">Add New Product</a></li>
-                                    <li><a href="admin-categories.html">Categories</a></li>
-                                    <li><a href="admin-inventory.html">Inventory</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="admin-orders.html">Order Management</a>
-                                <ul class="submenu">
-                                    <li><a href="admin-orders.html">All Orders</a></li>
-                                    <li><a href="admin-pending-orders.html">Pending Orders</a></li>
-                                    <li><a href="admin-shipped-orders.html">Shipped Orders</a></li>
-                                    <li><a href="admin-completed-orders.html">Completed Orders</a></li>
-                                    <li><a href="admin-returns.html">Returns & Refunds</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="admin-customers.html">Customer Management</a>
-                                <ul class="submenu">
-                                    <li><a href="admin-customers.html">All Customers</a></li>
-                                    <li><a href="admin-customer-add.html">Add New Customer</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="admin-settings.html">Store Settings</a></li>
+                            <li><a href="admin-dashboard.html" class="active">Dashboard</a></li>
+                            <li><a href="admin-products.html">Product Management</a></li>
+                            <li><a href="admin-orders.html">Order Management</a></li>
+                            <li><a href="admin-customers.html">Customer Management</a></li>
+                            <li><a href="admin-reports.html">Reports & Analytics</a></li>
+                            <li><a href="admin-settings.html">Settings</a></li>
                         </ul>
                     </nav>
                 </aside>
+
+                <!-- Admin Dashboard Content -->
+                <section class="admin-content">
+                    <h2>Dashboard Overview</h2>
+                    <div class="dashboard-widgets">
+                        <article class="widget">
+                            <h3>Total Products</h3>
+                            <p id="total-products">0</p>
+                        </article>
+
+                        <article class="widget">
+                            <h3>Orders Today</h3>
+                            <p id="total-orders">0</p>
+                        </article>
+                        
+                        <article class="widget">
+                            <h3>Registered Customers</h3>
+                            <p id="total-customers">0</p>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Product Management Section -->
+                <section class="admin-products">
+                    <h2>Product Inventory</h2>
+                    <button id="add-product-btn">+ Add Product</button>
+                    
+                    <table class="product-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="product-list">
+                            <!-- Dynamic Product Data Goes Here -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Order Management Section -->
+                <section class="admin-orders">
+                    <h2>Recent Orders</h2>
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="order-list">
+                            <!-- Dynamic Order Data -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Customer Management Section -->
+                <section class="admin-customers">
+                    <h2>Customer List</h2>
+                    <table class="customer-table">
+                        <thead>
+                            <tr>
+                                <th>Customer ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Orders</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="customer-list">
+                            <!-- Dynamic Customer Data -->
+                        </tbody>
+                    </table>
+                </section>
             </div>
         </main>
+
+        <!-- Admin Footer -->
+        <footer class="admin-footer">
+            <p>&copy; 2025 Reshie Admin | All Rights Reserved</p>
+        </footer>
+
+        <!-- External JavaScript Files Implemented -->
+        <script src="js/#"></script> <!-- Integrate app.js - Handles global site-wide functionalities -->
+        <script src="js/#"></script> <!-- Integrate auth.js - Handles authentication and admin session -->
+        <script src="js/#"></script> <!-- Integrate products.js - Handles product-related operations -->
+        <script src="js/#"></script> <!-- Integrate orders.js - Handles order-related operations -->
+        <script src="js/#"></script> <!-- Integrate customers.js - Handles customer-related operations -->
+        <script src="js/#"></script> <!-- Integrate admin-dashboard.js - Handles admin dashboard stats and interactions -->
+        <script src="js/#"></script> <!-- Integrate sidebar.js - Handles sidebar interactions and active state -->
     </body>
 </html>
