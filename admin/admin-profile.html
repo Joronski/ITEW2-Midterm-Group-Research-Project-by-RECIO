@@ -1,0 +1,275 @@
+<!-- 
+    Project Made by Recio's Group for MIDTERM GROUP RESEARCH PROJECT ITEW2 CLIENT/SERVER SIDE SCRIPTING
+
+    Group Members:
+
+    Recio, Joaquin Aaron P. - Group Leader/Lead Programmer
+    Alvarez, Kian Clark P.
+    Cantalejo, Blessreal S.
+    Catchuela, John Eric L.
+    Dela Cruz, Kim Francis O.
+    Del Mundo, Klarenz V.
+    Dela Torre, Mark Anthony A.
+    Estrella, Prince Rodni T. - Co-Lead Programmer
+    Fortin, Cheryll Anne V.
+    Rosario, Al-jay C.
+
+    RECIO's Group © 2025 | ITEW2 - Client/Server Side Scripting
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reshie | Admin Profile</title>
+
+        <!-- Favicon -->
+        <link rel="android-chrome" sizes="512x512" href="/assets/favicon_io/android-chrome-512x512.png">
+        <link rel="android-chrome" sizes="192x192" href="/assets/favicon_io/android-chrome-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon_io/favicon.ico">
+        <link rel="manifest" href="/assets/favicon_io/site.webmanifest">
+
+        <!-- External CSS -->
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/admin.css">
+
+        <!-- Google Fonts Integration -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <!-- Integrating jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    </head>
+    <body class="admin-panel">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="admin-dashboard.html">
+                        <img src="../assets/favicon_io/android-chrome-192x192.png" alt="Reshie Logo">
+                        <h1>Reshie Admin</h1>
+                    </a>
+                </div>
+
+                <nav class="admin-nav">
+                    <ul>
+                        <li><a href="admin-dashboard.html">Dashboard</a></li>
+                        <li><a href="admin-products.html">Products</a></li>
+                        <li><a href="admin-orders.html">Orders</a></li>
+                        <li><a href="admin-customers.html">Customers</a></li>
+                    </ul>
+                </nav>
+
+                <div class="admin-profile">
+                    <img src="../assets/avatar/admin-avatar.jpg" alt="Admin Profile">
+                    <button class="admin-dropdown-btn">Admin ▼</button>
+                    <div class="admin-dropdown-content">
+                        <a href="admin-profile.html">Profile</a>
+                        <a href="../index.html" id="admin-logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Admin Profile Content -->
+        <main class="admin-main">
+            <section class="container">
+                <div class="admin-breadcrumb">
+                    <a href="admin-dashboard.html">Dashboard</a> &gt; <span>Profile</span>
+                </div>
+                
+                <div class="admin-profile-section">
+                    <h2>Admin Profile</h2>
+                    
+                    <div class="profile-container">
+                        <div class="profile-sidebar">
+                            <div class="profile-avatar-container">
+                                <img src="../assets/avatar/admin-avatar.jpg" alt="Admin Avatar" id="profile-avatar">
+                                <div class="avatar-edit">
+                                    <label for="avatar-upload" class="avatar-edit-btn">Edit</label>
+                                    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                                </div>
+                            </div>
+                            
+                            <div class="profile-menu">
+                                <ul>
+                                    <li class="active"><a href="#account-info">Account Information</a></li>
+                                    <li><a href="#security">Security</a></li>
+                                    <li><a href="#activity-log">Activity Log</a></li>
+                                    <li><a href="#preferences">Preferences</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-content">
+                            <div id="account-info" class="profile-tab active">
+                                <h3>Account Information</h3>
+                                <form id="admin-info-form">
+                                    <div class="form-group">
+                                        <label for="admin-name">Full Name</label>
+                                        <input type="text" id="admin-name" name="admin-name" class="form-control" placeholder="Full Name" required>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="admin-email">Email Address</label>
+                                            <input type="email" id="admin-email" name="admin-email" class="form-control" placeholder="Email Address" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="admin-phone">Phone Number</label>
+                                            <input type="tel" id="admin-phone" name="admin-phone" class="form-control" placeholder="Phone Number">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="admin-role">Role</label>
+                                        <input type="text" id="admin-role" name="admin-role" class="form-control" placeholder="Admin Role" readonly>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="admin-bio">Bio</label>
+                                        <textarea id="admin-bio" name="admin-bio" class="form-control" placeholder="Short bio"></textarea>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn primary-btn">Save Changes</button>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <div id="security" class="profile-tab">
+                                <h3>Security</h3>
+                                <form id="admin-security-form">
+                                    <div class="form-group">
+                                        <label for="current-password">Current Password</label>
+                                        <input type="password" id="current-password" name="current-password" class="form-control" placeholder="Enter current password" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="new-password">New Password</label>
+                                        <input type="password" id="new-password" name="new-password" class="form-control" placeholder="Enter new password" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="confirm-password">Confirm New Password</label>
+                                        <input type="password" id="confirm-password" name="confirm-password" class="form-control" placeholder="Confirm new password" required>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <div id="activity-log" class="profile-tab">
+                                <h3>Activity Log</h3>
+                                <div class="activity-filter">
+                                    <select id="activity-type" class="form-control">
+                                        <option value="all">All Activities</option>
+                                        <option value="login">Login</option>
+                                        <option value="product">Product Changes</option>
+                                        <option value="order">Order Processing</option>
+                                        <option value="customer">Customer Management</option>
+                                    </select>
+                                    
+                                    <div class="date-range">
+                                        <input type="date" id="start-date" class="form-control">
+                                        <span>to</span>
+                                        <input type="date" id="end-date" class="form-control">
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-list">
+                                    <!-- Activity items will be loaded dynamically -->
+                                    <div class="empty-state">
+                                        <p>Select filters to view activity logs</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="preferences" class="profile-tab">
+                                <h3>Preferences</h3>
+                                <form id="admin-preferences-form">
+                                    <div class="form-group">
+                                        <h4>Notifications</h4>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="email-notifications" name="email-notifications" class="toggle-input">
+                                            <label for="email-notifications" class="toggle-label"></label>
+                                            <span class="toggle-text">Email Notifications</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="browser-notifications" name="browser-notifications" class="toggle-input">
+                                            <label for="browser-notifications" class="toggle-label"></label>
+                                            <span class="toggle-text">Browser Notifications</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <h4>Email Preferences</h4>
+                                        <div class="checkbox-group">
+                                            <input type="checkbox" id="notify-orders" name="notify-orders" class="checkbox-input">
+                                            <label for="notify-orders">New Orders</label>
+                                        </div>
+                                        
+                                        <div class="checkbox-group">
+                                            <input type="checkbox" id="notify-products" name="notify-products" class="checkbox-input">
+                                            <label for="notify-products">Low Stock Products</label>
+                                        </div>
+                                        
+                                        <div class="checkbox-group">
+                                            <input type="checkbox" id="notify-customers" name="notify-customers" class="checkbox-input">
+                                            <label for="notify-customers">New Customer Registrations</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <h4>Display Settings</h4>
+                                        <div class="form-row">
+                                            <label for="theme-preference">Theme</label>
+                                            <select id="theme-preference" name="theme-preference" class="form-control">
+                                                <option value="system">System Default</option>
+                                                <option value="light">Light</option>
+                                                <option value="dark">Dark</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-row">
+                                            <label for="products-per-page">Products Per Page</label>
+                                            <select id="products-per-page" name="products-per-page" class="form-control">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn primary-btn">Save Preferences</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Admin Footer -->
+        <footer class="admin-footer">
+            <p>&copy; 2025 Reshie Admin | All Rights Reserved</p>
+        </footer>
+
+        <!-- External JavaScript Files -->
+        <script src="../js/#"></script> <!-- Integrate app.js - Handles global site-wide functionalities -->
+        <script src="../js/#"></script> <!-- Integrate auth.js - Handles authentication and admin session -->
+        <script src="../js/#"></script> <!-- Integrate products.js - Handles product-related operations -->
+        <script src="../js#"></script> <!-- Integrate sidebar.js - Handles sidebar interactions and active state -->
+        <script src="../js/#"></script> <!-- Integrate profile.js - Handles profile-specific functionality -->
+    </body>
+</html>

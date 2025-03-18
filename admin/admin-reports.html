@@ -1,0 +1,270 @@
+<!-- 
+    Project Made by Recio's Group for MIDTERM GROUP RESEARCH PROJECT ITEW2 CLIENT/SERVER SIDE SCRIPTING
+
+    Group Members:
+
+    Recio, Joaquin Aaron P. - Group Leader/Lead Programmer
+    Alvarez, Kian Clark P.
+    Cantalejo, Blessreal S.
+    Catchuela, John Eric L.
+    Dela Cruz, Kim Francis O.
+    Del Mundo, Klarenz V.
+    Dela Torre, Mark Anthony A.
+    Estrella, Prince Rodni T. - Co-Lead Programmer
+    Fortin, Cheryll Anne V.
+    Rosario, Al-jay C.
+
+    RECIO's Group © 2025 | ITEW2 - Client/Server Side Scripting
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reshie | Admin Reports</title>
+
+        <!-- Favicon -->
+        <link rel="android-chrome" sizes="512x512" href="/assets/favicon_io/android-chrome-512x512.png">
+        <link rel="android-chrome" sizes="192x192" href="/assets/favicon_io/android-chrome-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon_io/favicon.ico">
+        <link rel="manifest" href="/assets/favicon_io/site.webmanifest">
+
+        <!-- External CSS -->
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/admin.css">
+
+        <!-- Google Fonts Integration -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <!-- Integrating jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    </head>
+    <body class="admin-panel">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="admin-dashboard.html">
+                        <img src="../assets/favicon_io/android-chrome-192x192.png" alt="Reshie Logo">
+                        <h1>Reshie Admin</h1>
+                    </a>
+                </div>
+                <nav class="admin-nav">
+                    <ul>
+                        <li><a href="admin-dashboard.html">Dashboard</a></li>
+                        <li><a href="admin-products.html">Products</a></li>
+                        <li><a href="admin-orders.html">Orders</a></li>
+                        <li><a href="admin-customers.html">Customers</a></li>
+                        <li><a href="admin-reports.html" class="active">Reports</a></li>
+                    </ul>
+                </nav>
+                <div class="admin-profile">
+                    <img src="../assets/avatar/admin-avatar.jpg" alt="Admin Profile">
+                    <button class="admin-dropdown-btn">Admin ▼</button>
+                    <div class="admin-dropdown-content">
+                        <a href="admin-profile.html">Profile</a>
+                        <a href="../index.html" id="admin-logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Admin Reports Content -->
+        <main class="admin-main">
+            <div class="container">
+                <section class="admin-reports-header">
+                    <h2>Analytics & Reports</h2>
+                    <div class="reports-actions">
+                        <div class="date-range-picker">
+                            <label for="start-date">From:</label>
+                            <input type="date" id="start-date" name="start-date">
+                            <label for="end-date">To:</label>
+                            <input type="date" id="end-date" name="end-date">
+                        </div>
+                        <button id="generate-report" class="btn primary">Generate Report</button>
+                        <div class="report-export">
+                            <button id="export-pdf" class="btn secondary">Export PDF</button>
+                            <button id="export-csv" class="btn secondary">Export CSV</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="reports-overview">
+                    <div class="reports-cards">
+                        <article class="report-card" id="sales-summary">
+                            <h3>Sales Summary</h3>
+                            <div class="report-data-container" id="sales-data"></div>
+                        </article>
+                        <article class="report-card" id="revenue-summary">
+                            <h3>Revenue</h3>
+                            <div class="report-data-container" id="revenue-data"></div>
+                        </article>
+                        <article class="report-card" id="orders-summary">
+                            <h3>Orders</h3>
+                            <div class="report-data-container" id="orders-data"></div>
+                        </article>
+                        <article class="report-card" id="customer-summary">
+                            <h3>Customers</h3>
+                            <div class="report-data-container" id="customer-data"></div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="reports-details">
+                    <div class="reports-tabs">
+                        <button class="tab-btn active" data-tab="sales-report">Sales Report</button>
+                        <button class="tab-btn" data-tab="inventory-report">Inventory Report</button>
+                        <button class="tab-btn" data-tab="product-performance">Product Performance</button>
+                        <button class="tab-btn" data-tab="customer-insights">Customer Insights</button>
+                    </div>
+
+                    <div class="tab-content active" id="sales-report">
+                        <div class="report-filters">
+                            <div class="filter-group">
+                                <label for="sales-category-filter">Category:</label>
+                                <select id="sales-category-filter" class="filter-select">
+                                    <option value="all">All Categories</option>
+                                    <!-- Categories will be populated dynamically -->
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="sales-view-type">View:</label>
+                                <select id="sales-view-type" class="filter-select">
+                                    <option value="chart">Chart</option>
+                                    <option value="table">Table</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="report-visualization" id="sales-visualization"></div>
+                        <div class="report-table-container" id="sales-table-container"></div>
+                    </div>
+
+                    <div class="tab-content" id="inventory-report">
+                        <div class="report-filters">
+                            <div class="filter-group">
+                                <label for="inventory-status-filter">Status:</label>
+                                <select id="inventory-status-filter" class="filter-select">
+                                    <option value="all">All Status</option>
+                                    <option value="in-stock">In Stock</option>
+                                    <option value="low-stock">Low Stock</option>
+                                    <option value="out-of-stock">Out of Stock</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="inventory-view-type">View:</label>
+                                <select id="inventory-view-type" class="filter-select">
+                                    <option value="chart">Chart</option>
+                                    <option value="table">Table</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="report-visualization" id="inventory-visualization"></div>
+                        <div class="report-table-container" id="inventory-table-container"></div>
+                    </div>
+
+                    <div class="tab-content" id="product-performance">
+                        <div class="report-filters">
+                            <div class="filter-group">
+                                <label for="product-sort-by">Sort By:</label>
+                                <select id="product-sort-by" class="filter-select">
+                                    <option value="most-sold">Most Sold</option>
+                                    <option value="highest-revenue">Highest Revenue</option>
+                                    <option value="best-rated">Best Rated</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="product-view-type">View:</label>
+                                <select id="product-view-type" class="filter-select">
+                                    <option value="chart">Chart</option>
+                                    <option value="table">Table</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="report-visualization" id="product-visualization"></div>
+                        <div class="report-table-container" id="product-table-container"></div>
+                    </div>
+
+                    <div class="tab-content" id="customer-insights">
+                        <div class="report-filters">
+                            <div class="filter-group">
+                                <label for="customer-segment-filter">Segment:</label>
+                                <select id="customer-segment-filter" class="filter-select">
+                                    <option value="all">All Customers</option>
+                                    <option value="new">New Customers</option>
+                                    <option value="returning">Returning Customers</option>
+                                    <option value="loyal">Loyal Customers</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="customer-view-type">View:</label>
+                                <select id="customer-view-type" class="filter-select">
+                                    <option value="chart">Chart</option>
+                                    <option value="table">Table</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="report-visualization" id="customer-visualization"></div>
+                        <div class="report-table-container" id="customer-table-container"></div>
+                    </div>
+                </section>
+
+                <section class="custom-report-builder">
+                    <h3>Custom Report Builder</h3>
+                    <div class="report-builder-interface">
+                        <div class="report-builder-options">
+                            <div class="option-group">
+                                <label for="report-metrics">Metrics:</label>
+                                <select id="report-metrics" multiple>
+                                    <option value="sales">Sales</option>
+                                    <option value="revenue">Revenue</option>
+                                    <option value="orders">Orders</option>
+                                    <option value="customers">Customers</option>
+                                    <option value="product-views">Product Views</option>
+                                    <option value="conversion-rate">Conversion Rate</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label for="report-dimensions">Dimensions:</label>
+                                <select id="report-dimensions" multiple>
+                                    <option value="date">Date</option>
+                                    <option value="category">Category</option>
+                                    <option value="product">Product</option>
+                                    <option value="customer-type">Customer Type</option>
+                                    <option value="location">Location</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label for="report-format">Format:</label>
+                                <select id="report-format">
+                                    <option value="bar-chart">Bar Chart</option>
+                                    <option value="line-chart">Line Chart</option>
+                                    <option value="pie-chart">Pie Chart</option>
+                                    <option value="table">Table</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button id="build-custom-report" class="btn primary">Build Report</button>
+                    </div>
+                    <div class="custom-report-output" id="custom-report-output"></div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Admin Footer -->
+        <footer class="admin-footer">
+            <p>&copy; 2025 Reshie Admin | All Rights Reserved</p>
+        </footer>
+
+        <!-- External JavaScript Files -->
+        <script src="../js/#"></script> <!-- Integrate app.js - Handles global site-wide functionalities -->
+        <script src="../js/#"></script> <!-- Integrate auth.js - Handles authentication and admin session -->
+        <script src="../js/#"></script> <!-- Integrate reports.js - Handles reports-related operations -->
+        <script src="../js/#"></script> <!-- Integrate sidebar.js - Handles sidebar interactions and active state -->
+    </body>
+</html>

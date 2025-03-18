@@ -1,0 +1,300 @@
+<!-- 
+    Project Made by Recio's Group for MIDTERM GROUP RESEARCH PROJECT ITEW2 CLIENT/SERVER SIDE SCRIPTING
+
+    Group Members:
+
+    Recio, Joaquin Aaron P. - Group Leader/Lead Programmer
+    Alvarez, Kian Clark P.
+    Cantalejo, Blessreal S.
+    Catchuela, John Eric L.
+    Dela Cruz, Kim Francis O.
+    Del Mundo, Klarenz V.
+    Dela Torre, Mark Anthony A.
+    Estrella, Prince Rodni T. - Co-Lead Programmer
+    Fortin, Cheryll Anne V.
+    Rosario, Al-jay C.
+
+    RECIO's Group © 2025 | ITEW2 - Client/Server Side Scripting
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reshie | Admin Customer Management</title>
+
+        <!-- Favicon -->
+        <link rel="android-chrome" sizes="512x512" href="/assets/favicon_io/android-chrome-512x512.png">
+        <link rel="android-chrome" sizes="192x192" href="/assets/favicon_io/android-chrome-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon_io/favicon.ico">
+        <link rel="manifest" href="/assets/favicon_io/site.webmanifest">
+
+        <!-- External CSS -->
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/admin.css">
+
+        <!-- Google Fonts Integration -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <!-- Integrating jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    </head>
+    <body class="admin-panel">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="admin-dashboard.html">
+                        <img src="../assets/favicon_io/android-chrome-192x192.png" alt="Reshie Logo">
+                        <h1>Reshie Admin</h1>
+                    </a>
+                </div>
+                <nav class="admin-nav">
+                    <ul>
+                        <li><a href="admin-dashboard.html">Dashboard</a></li>
+                        <li><a href="admin-products.html">Products</a></li>
+                        <li><a href="admin-orders.html">Orders</a></li>
+                        <li><a href="admin-customers.html" class="active">Customers</a></li>
+                    </ul>
+                </nav>
+                <div class="admin-profile">
+                    <img src="../assets/avatar/admin-avatar.jpg" alt="Admin Profile">
+                    <button class="admin-dropdown-btn">Admin ▼</button>
+                    <div class="admin-dropdown-content">
+                        <a href="admin-profile.html">Profile</a>
+                        <a href="../index.html" id="admin-logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Admin Content -->
+        <main class="admin-main">
+            <div class="container">
+                <div class="admin-content-header">
+                    <h2>Customer Management</h2>
+                    <div class="admin-content-actions">
+                        <button id="addCustomerBtn" class="btn-primary">Add New Customer</button>
+                        <button id="exportCustomerData" class="btn-secondary">Export Data</button>
+                    </div>
+                </div>
+
+                <!-- Customer Management Section -->
+                <section id="customer-management" class="admin-section">
+                    <div class="search-filter-container">
+                        <div class="search-box">
+                            <input type="text" id="customerSearch" placeholder="Search customers...">
+                            <button id="searchCustomerBtn">Search</button>
+                        </div>
+                        <div class="filter-options">
+                            <select id="customerFilter">
+                                <option value="all">All Customers</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="new">New (Last 30 days)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="data-management">
+                        <div class="customer-list-container">
+                            <table class="data-table" id="customerTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Registration Date</th>
+                                        <th>Orders</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="customerTableBody">
+                                    <!-- Customer data will be inserted dynamically -->
+                                </tbody>
+                            </table>
+                            <div class="pagination" id="customerPagination">
+                                <!-- Pagination controls will be inserted dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Customer Order History Section -->
+                <section id="customer-orders" class="admin-section hidden">
+                    <div class="section-header">
+                        <h3>Customer Order History</h3>
+                        <button id="backToCustomerList" class="btn-secondary">Back to Customer List</button>
+                    </div>
+                    
+                    <div class="customer-info-summary" id="customerOrdersSummary">
+                        <!-- Customer summary will be inserted dynamically -->
+                    </div>
+                    
+                    <div class="order-history-container">
+                        <table class="data-table" id="customerOrdersTable">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Products</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customerOrdersTableBody">
+                                <!-- Order data will be inserted dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <!-- Transaction History for Customer Section -->
+                <section id="customer-transactions" class="admin-section hidden">
+                    <div class="section-header">
+                        <h3>Customer Transaction History</h3>
+                        <button id="backToCustomerOrders" class="btn-secondary">Back to Orders</button>
+                    </div>
+                    
+                    <div class="search-filter-container">
+                        <div class="date-filter">
+                            <label for="dateFrom">From:</label>
+                            <input type="date" id="dateFrom">
+                            <label for="dateTo">To:</label>
+                            <input type="date" id="dateTo">
+                            <button id="applyDateFilter">Apply</button>
+                        </div>
+                        <div class="filter-options">
+                            <select id="transactionFilter">
+                                <option value="all">All Transactions</option>
+                                <option value="purchase">Purchases</option>
+                                <option value="refund">Refunds</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="transaction-list-container">
+                        <table class="data-table" id="transactionTable">
+                            <thead>
+                                <tr>
+                                    <th>Transaction ID</th>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactionTableBody">
+                                <!-- Transaction data will be inserted dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Customer Detail Modal -->
+        <div id="customerDetailModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>Customer Details</h3>
+                <div id="customerDetails">
+                    <!-- Customer details will be inserted dynamically -->
+                </div>
+                <div class="customer-actions">
+                    <button id="viewCustomerOrdersBtn" class="btn-secondary">View Orders</button>
+                    <button id="editCustomerBtn" class="btn-primary">Edit</button>
+                    <button id="deleteCustomerBtn" class="btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add/Edit Customer Form Modal -->
+        <div id="customerFormModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3 id="customerFormTitle">Add New Customer</h3>
+                <form id="customerForm">
+                    <div class="form-group">
+                        <label for="customerName">Full Name</label>
+                        <input type="text" id="customerName" name="customerName" required>
+                        <span class="error-message" id="customerNameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerEmail">Email</label>
+                        <input type="email" id="customerEmail" name="customerEmail" required>
+                        <span class="error-message" id="customerEmailError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Phone</label>
+                        <input type="tel" id="customerPhone" name="customerPhone">
+                        <span class="error-message" id="customerPhoneError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerAddress">Address</label>
+                        <textarea id="customerAddress" name="customerAddress"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerStatus">Status</label>
+                        <select id="customerStatus" name="customerStatus">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save</button>
+                        <button type="button" class="btn-secondary cancel-form">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Transaction Detail Modal -->
+        <div id="transactionDetailModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>Transaction Details</h3>
+                <div id="transactionDetails">
+                    <!-- Transaction details will be inserted dynamically -->
+                </div>
+                <div class="transaction-actions">
+                    <button id="processRefundBtn" class="btn-warning">Process Refund</button>
+                    <button id="printReceiptBtn" class="btn-secondary">Print Receipt</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Confirmation Modal -->
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <h3>Confirm Action</h3>
+                <p id="confirmationMessage"></p>
+                <div class="form-actions">
+                    <button id="confirmAction" class="btn-danger">Confirm</button>
+                    <button id="cancelAction" class="btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Footer -->
+        <footer class="admin-footer">
+            <p>&copy; 2025 Reshie Admin | All Rights Reserved</p>
+        </footer>
+
+        <!-- External JavaScript Files -->
+        <script src="../js/#"></script> <!-- Integrate app.js - Handles global site-wide functionalities -->
+        <script src="../js/#"></script> <!-- Integrate auth.js - Handles authentication and admin session -->
+        <script src="../js/#"></script> <!-- Integrate customers.js - Handles customer-related operations -->
+        <script src="../js/#"></script> <!-- Integrate sidebar.js - Handles sidebar interactions and active state -->
+    </body>
+</html>

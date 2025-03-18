@@ -1,0 +1,275 @@
+<!-- 
+    Project Made by Recio's Group for MIDTERM GROUP RESEARCH PROJECT ITEW2 CLIENT/SERVER SIDE SCRIPTING
+
+    Group Members:
+
+    Recio, Joaquin Aaron P. - Group Leader/Lead Programmer
+    Alvarez, Kian Clark P.
+    Cantalejo, Blessreal S.
+    Catchuela, John Eric L.
+    Dela Cruz, Kim Francis O.
+    Del Mundo, Klarenz V.
+    Dela Torre, Mark Anthony A.
+    Estrella, Prince Rodni T. - Co-Lead Programmer
+    Fortin, Cheryll Anne V.
+    Rosario, Al-jay C.
+
+    RECIO's Group © 2025 | ITEW2 - Client/Server Side Scripting
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reshie | Admin Order Management</title>
+
+        <!-- Favicon -->
+        <link rel="android-chrome" sizes="512x512" href="/assets/favicon_io/android-chrome-512x512.png">
+        <link rel="android-chrome" sizes="192x192" href="/assets/favicon_io/android-chrome-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon_io/favicon.ico">
+        <link rel="manifest" href="/assets/favicon_io/site.webmanifest">
+
+        <!-- External CSS -->
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/admin.css">
+        
+        <!-- Google Fonts Integration -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <!-- Integrating jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    </head>
+    <body class="admin-panel">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="admin-dashboard.html">
+                        <img src="../assets/favicon_io/android-chrome-192x192.png" alt="Reshie Logo">
+                        <h1>Reshie Admin</h1>
+                    </a>
+                </div>
+
+                <nav class="admin-nav">
+                    <ul>
+                        <li><a href="admin-dashboard.html">Dashboard</a></li>
+                        <li><a href="admin-products.html">Products</a></li>
+                        <li><a href="admin-orders.html" class="active">Orders</a></li>
+                        <li><a href="admin-customers.html">Customers</a></li>
+                    </ul>
+                </nav>
+
+                <div class="admin-profile">
+                    <img src="../assets/avatar/admin-avatar.jpg" alt="Admin Profile">
+                    <button class="admin-dropdown-btn">Admin ▼</button>
+                    <div class="admin-dropdown-content">
+                        <a href="admin-profile.html">Profile</a>
+                        <a href="../index.html" id="admin-logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Admin Orders Content -->
+        <main class="admin-main">
+            <div class="container">
+                <section class="admin-content-header">
+                    <h2>Order Management</h2>
+                    <div class="admin-actions">
+                        <div class="search-container">
+                            <input type="search" id="order-search" placeholder="Search orders...">
+                            <button id="search-btn">Search</button>
+                        </div>
+
+                        <div class="filter-container">
+                            <select id="order-status-filter">
+                                <option value="all">All Orders</option>
+                                <option value="pending">Pending</option>
+                                <option value="processing">Processing</option>
+                                <option value="shipped">Shipped</option>
+                                <option value="delivered">Delivered</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+
+                            <select id="order-date-filter">
+                                <option value="all">All Time</option>
+                                <option value="today">Today</option>
+                                <option value="week">This Week</option>
+                                <option value="month">This Month</option>
+                                <option value="year">This Year</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="orders-stats">
+                    <div class="stat-card">
+                        <h3>Total Orders</h3>
+                        <p id="total-orders-count">0</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>Pending Orders</h3>
+                        <p id="pending-orders-count">0</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>Completed Orders</h3>
+                        <p id="completed-orders-count">0</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>Cancelled Orders</h3>
+                        <p id="cancelled-orders-count">0</p>
+                    </div>
+                </section>
+
+                <section class="orders-table-container">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-list">
+                            <!-- Order data will be dynamically populated here via JavaScript -->
+                        </tbody>
+                    </table>
+                    <div id="no-orders-message" class="hidden">
+                        <p>No orders found matching your criteria.</p>
+                    </div>
+                </section>
+
+                <section class="pagination-container">
+                    <div class="pagination" id="orders-pagination">
+                        <!-- Pagination will be dynamically populated here -->
+                    </div>
+                    <div class="items-per-page">
+                        <label for="items-per-page">Show:</label>
+                        <select id="items-per-page">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Order Detail Modal -->
+        <div id="order-detail-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Order Details</h2>
+                <div class="order-info">
+                    <div class="order-header">
+                        <div class="order-id">
+                            <h3>Order ID: <span id="detail-order-id"></span></h3>
+                            <p>Date: <span id="detail-order-date"></span></p>
+                        </div>
+                        <div class="order-status">
+                            <select id="update-order-status">
+                                <option value="pending">Pending</option>
+                                <option value="processing">Processing</option>
+                                <option value="shipped">Shipped</option>
+                                <option value="delivered">Delivered</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                            <button id="save-status">Update Status</button>
+                        </div>
+                    </div>
+                    
+                    <div class="customer-info">
+                        <h3>Customer Information</h3>
+                        <p>Name: <span id="detail-customer-name"></span></p>
+                        <p>Email: <span id="detail-customer-email"></span></p>
+                        <p>Phone: <span id="detail-customer-phone"></span></p>
+                    </div>
+
+                    <div class="shipping-info">
+                        <h3>Shipping Address</h3>
+                        <p id="detail-shipping-address"></p>
+                    </div>
+
+                    <div class="payment-info">
+                        <h3>Payment Information</h3>
+                        <p>Method: <span id="detail-payment-method"></span></p>
+                        <p>Transaction ID: <span id="detail-transaction-id"></span></p>
+                    </div>
+
+                    <div class="order-items">
+                        <h3>Order Items</h3>
+                        <table class="order-items-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody id="detail-order-items">
+                                <!-- Order items will be dynamically populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="order-summary">
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="detail-subtotal"></span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span id="detail-shipping"></span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax:</span>
+                            <span id="detail-tax"></span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="detail-total"></span>
+                        </div>
+                    </div>
+
+                    <div class="order-notes">
+                        <h3>Order Notes</h3>
+                        <textarea id="order-notes" placeholder="Add notes about this order"></textarea>
+                        <button id="save-notes">Save Notes</button>
+                    </div>
+
+                    <div class="order-actions">
+                        <button id="print-invoice">Print Invoice</button>
+                        <button id="send-notification">Send Notification</button>
+                        <button id="process-refund" class="danger">Process Refund</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Footer -->
+        <footer class="admin-footer">
+            <p>&copy; 2025 Reshie Admin | All Rights Reserved</p>
+        </footer>
+        
+        <!-- External JavaScript Files -->
+        <script src="../js/#"></script> <!-- Integrate app.js - Handles global site-wide functionalities -->
+        <script src="../js/#"></script> <!-- Integrate auth.js - Handles authentication and admin session -->
+        <script src="../js/#"></script> <!-- Integrate orders.js - Handles order-related operations -->
+        <script src="../js/#"></script> <!-- Integrate sidebar.js - Handles sidebar interactions and active state -->
+    </body>
+</html>
