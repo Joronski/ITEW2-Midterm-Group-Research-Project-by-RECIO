@@ -34,7 +34,14 @@
         <link rel="manifest" href="/assets/favicon_io/site.webmanifest">
 
         <!-- External CSS Link -->
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/faq.css">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
         <!-- Google Fonts Integration -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,238 +52,91 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     </head>
     <body>
-        <!-- Header Section -->
-        <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg" style="background-color: #013220;">
             <div class="container">
-                <div class="reshie-logo">
-                    <a href="index.html">
-                        <img src="assets/favicon_io/android-chrome-192x192.png" alt="Reshie Logo">
-                        <h1>Reshie</h1>
-                    </a>
-                </div>
-
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                <a class="navbar-brand text-white" href="index.html">
+                    <img src="assets/favicon_io/android-chrome-192x192.png" alt="Reshie Logo" width="30">
+                    <span class="text-white">Reshie</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="products.html">Products</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
                     </ul>
-                </nav>
-                <div class="header-actions">
-                    <div class="search-bar">
-                        <input type="search" id="product-search" placeholder="Mechanical Keyboard">
-                        <button type="button" id="search-button">Search</button>
-                    </div>
-
-                    <div class="user-actions">
-                        <a href="cart.html" class="cart-icon">
-                            <span class="cart-count">0</span>
-                        </a>
-
-                        <div class="user-profile">
-                            <button id="user-menu-toggle">My Account</button>
-                            <div class="dropdown-menu" id="user-dropdown">
-                                <a href="profile.html">Profile</a>
-                                <a href="orders.html">Orders</a>
-                                <a href="#" id="logout-button">Logout</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </header>
+        </nav>
 
         <!-- Main Content -->
         <main>
             <!-- FAQ Hero Section -->
             <section class="faq-hero">
                 <div class="container">
-                    <h1>Frequently Aseked Questions</h1>
+                    <h1>Frequently Asked Questions</h1>
                     <p>Find answers to common questions about Reshie</p>
                 </div>
             </section>
 
-            <!-- FAQ Categories Section -->
-            <section class="faq-categories">
-                <div class="container">
-                    <div class="category-tabs">
-                        <button class="category-tab active" data-category="general">General</button>
-                        <button class="category-tab" data-category="account">Account</button>
-                        <button class="category-tab" data-category="products">Products</button>
-                        <button class="category-tab" data-category="orders">Orders & Shipping</button>
-                        <button class="category-tab" data-category="payments">Payments</button>
-                        <button class="category-tab" data-category="returns">Returns & Refunds</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FAQ Content Section -->
-            <section class="faq-content">
-                <div class="container">
-                    <!-- General FAQs -->
-                    <div class="faq-category active" id="general-faqs">
-                        <h2>General Questions</h2>
-
-                        <div class="faq-item">
-                            <div class="faq-question">What is Reshie?</div>
-                            <div class="faq-answer">
-                                <p>Reshie is an e-commerce platform founded by students of Pamantasan ng Cabuyao, offering a wide range of products with a focus on technology gadgets and accessories.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <div class="faq-question">How can I contact customer support?</div>
-                            <div class="faq-answer">
-                                <p>You can contact our customer support team via email at support@reshie.com, by phone at (+63) 123 456 7891, or by visiting our Contact page.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <div class="faq-question">What are your business hours?</div>
-                            <div class="faq-answer">
-                                <p>Our customer service team is available Monday to Friday from 8:00 AM to 5:00 PM, and Saturday from 10:00 AM to 5:00 PM. We are closed on Sundays and holidays.</p>
+            <!-- FAQ Section -->
+            <main class="container py-5">
+                <h1 class="mb-4 text-center">Frequently Asked Questions</h1>
+                <div class="accordion" id="faqAccordion">
+                    
+                    <!-- FAQ Item 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq-heading-1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-1">
+                                What is Reshie?
+                            </button>
+                        </h2>
+                        <div id="faq-collapse-1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Reshie is an e-commerce platform founded by students of Pamantasan ng Cabuyao, offering a wide range of products with a focus on technology gadgets and accessories.
                             </div>
                         </div>
                     </div>
 
-                    <!-- Account FAQ's -->
-                    <div class="faq-category" id="account-faqs">
-                        <h2>Account Questions</h2>
-
-                        <div class="faq-item">
-                            <div class="faq-question">How do I create an account?</div>
-                            <div class="faq-answer">
-                                <p>To create an account, click on the "My Account" button in the top right corner of the website and select "Register". Fill in the required information and click "Register" to complete the process.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <div class="faq-question">How can I reset my password?</div>
-                            <div class="faq-answer">
-                                <p>If you've forgotten your password, click on "My Account", then "Login", and select "Forgot Password". Enter your email address, and we'll send you instructions to reset your password.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <div class="faq-question">How do I update my profile information?</div>
-                            <div class="faq-answer">
-                                <p>Once logged in, click on "My Account" and select "Profile". Here you can update your personal information, shipping addresses, and payment methods.</p>
+                    <!-- FAQ Item 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq-heading-2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-2">
+                                How can I contact customer support?
+                            </button>
+                        </h2>
+                        <div id="faq-collapse-2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                You can contact our customer support team via email at support@reshie.com, by phone at (+63) 123 456 7891, or by visiting our Contact page.
                             </div>
                         </div>
                     </div>
 
-                    <!-- Products FAQs -->
-                    <div class="faq-category" id="products-faqs">
-                        <h2>Product Questions</h2>
-
-                        <div class="faq-item">
-                            <div class="faq-question">How do I know if a product is in stock?</div>
-                            <div class="faq-answer">
-                                <p>Product availability is displayed on the product page. If a product is in stock, you'll see "In Stock" and can add it to your cart. If it's out of stock, you'll see "Out of Stock".</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <div class="faq-question">Do you offer product warranties?</div>
-                            <div class="faq-answer">
-                                <p>Yes, all our products come with a standard manufacturer's warranty. Specific warranty information is available on individual product pages.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <div class="faq-question">How can I find products on your website?</div>
-                            <div class="faq-answer">
-                                <p>You can browse products by category, use the search bar at the top of the page, or check out our featured products on the homepage.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Orders FAQs -->
-                    <div class="faq-category" id="orders-faqs">
-                        <h2>Orders & Shipping Questions</h2>
-
-                        <div class="faq-item">
-                            <div class="faq-question">How can I track my order?</div>
-                            <div class="faq-answer">
-                                <p>Once your order has been shipped, you'll receive a tracking number via email. You can also track your order by logging into your account and viewing your order history.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <div class="faq-question">How long does shipping take?</div>
-                            <div class="faq-answer">
-                                <p>Standard shipping typically takes 3-5 business days within the Philippines. Express shipping options are available at checkout for faster delivery.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <div class="faq-question">Do you ship internationally?</div>
-                            <div class="faq-answer">
-                                <p>Currently, we only ship within the Philippines. We plan to expand our shipping options to other countries in the future.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Payment FAQs -->
-                    <div class="faq-category" id="payments-faqs">
-                        <h2>Payment Questions</h2>
-
-                        <div class="faq-item">
-                            <div class="faq-question">What payment methods do you accept?</div>
-                            <div class="faq-answer">
-                                <p>We accept credit/debit cards, GCash, PayMaya, and cash on delivery (COD) for orders within Metro Manila.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <div class="faq-question">Is it safe to enter my credit card information on your website?</div>
-                            <div class="faq-answer">
-                                <p>Yes, we use industry-standard SSL encryption to protect your payment information. Your credit card details are never stored on our servers.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <div class="faq-question">When will I be charged for my order?</div>
-                            <div class="faq-answer">
-                                <p>Your payment is processed immediately when you place your order. For COD orders, payment is collected upon delivery.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Returns FAQs -->
-                    <div class="faq-category" id="return-faqs">
-                        <h2>Returns & Refunds Questions</h2>
-
-                        <div class="faq-item">
-                            <div class="faq-question">What is your return policy?</div>
-                            <div class="faq-answer">
-                                <p>We accept returns within 7 days of delivery for products in their original condition and packaging. Some items, such as earphones and personal care products, cannot be returned for hygiene reasons.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <div class="faq-question">How do I request a return or refund?</div>
-                            <div class="faq-answer">
-                                <p>To request a return or refund, log into your account, go to "Orders," select the order you want to return, and click "Request Return." Follow the instructions to complete your return request.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <div class="faq-question">How long does it take to process a refund?</div>
-                            <div class="faq-answer">
-                                <p>Once we receive your returned item, we will inspect it and process your refund within 3-5 business days. It may take additional days for the refund to appear in your account, depending on your payment method.</p>
+                    <!-- FAQ Item 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq-heading-3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-3">
+                                What are your business hours?
+                            </button>
+                        </h2>
+                        <div id="faq-collapse-3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Our customer service team is available Monday to Friday from 8:00 AM to 5:00 PM, and Saturday from 10:00 AM to 5:00 PM. We are closed on Sundays and holidays.
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </main>
+        </main>
 
-            <!-- Still Have Questions Section -->
+        <!-- Still Have Questions Section -->
             <section class="still-questions">
                 <div class="container">
                     <h2>Still Have Questions?</h2>
-
                     <p>If you couldn't find the answer to your question, please contact our customer support team.</p>
                     <a href="contact.html" class="btn">Contact Us</a>
                 </div>
