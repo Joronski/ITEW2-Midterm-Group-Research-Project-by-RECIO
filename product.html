@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LevelUp Market | Products</title>
+
+        <!-- External CSS Integrated -->
+        <link rel="stylesheet" href="product.css">
+
+        <!-- Favicon Configuration - Multiple Sizes for Different Devices -->
+        <link rel="android-chrome" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
+        <link rel="android-chrome" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
+        <link rel="manifest" href="favicon_io/site.webmanifest">
+
+        <!-- Google Fonts - Poppins Family -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <!-- Site Branding -->
+            <h1>LevelUp Market</h1>
+            <p style="text-align: center;">Shop Smarter, Live Better!</p>
+            
+            <nav>
+                <ul>
+                    <li><a href="user.html">Home</a></li>
+                    <li><a href="product.html" class="active">Products</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="orders.html">Orders</a></li>
+                    <li><a href="checkout.html">Checkout</a></li>
+                    <li><a href="login.html" id="loginBtn">Login</a></li>
+
+                    <li>
+                        <input type="text" id="searchBar" placeholder="Search products...">
+                        <button id="searchBtn">Search</button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="featured-products">
+                <h2 style="text-align: center;">Featured Products</h2>
+                <div class="product-grid">
+                    <div class="product">
+                        <img src="img/watch.jpg" alt="Smart Watch">
+                        <h3>Smart Watch</h3>
+                        <p>Track your fitness and stay connected on the go.</p>
+                        <span>$89.99</span>
+                        <button class="addToCart">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/head.jpg" alt="Wireless Headphones">
+                        <h3>Wireless Headphones</h3>
+                        <p>Experience high-quality sound with noise cancellation.</p>
+                        <span>$49.99</span>
+                        <button class="addToCart">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/mouse.png" alt="Gaming Mouse">
+                        <h3>Gaming Mouse</h3>
+                        <p>Precision gaming mouse with customizable buttons.</p>
+                        <span>$29.99</span>
+                        <button class="addToCart">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/keyboard.jpg" alt="Mechanical Keyboard">
+                        <h3>Mechanical Keyboard</h3>
+                        <p>High-performance keyboard with RGB lighting.</p>
+                        <span>$79.99</span>
+                        <button class="addToCart">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/laptop.jpg" alt="Laptop">
+                        <h3>Gaming Laptop</h3>
+                        <p>Powerful laptop for gaming and productivity.</p>
+                        <span>$999.99</span>
+                        <button class="addToCart">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/monitor.jpg" alt="Monitor">
+                        <h3>4K Monitor</h3>
+                        <p>Ultra HD display with stunning visuals.</p>
+                        <span>$349.99</span>
+                        <button class="addToCart">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/phone.jpg" alt="Smartphone">
+                        <h3>Smartphone</h3>
+                        <p>Latest model with high-speed performance.</p>
+                        <span>$699.99</span>
+                        <button class="addToCart">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/tablet.jpg" alt="Tablet">
+                        <h3>Tablet</h3>
+                        <p>Portable and powerful for work and entertainment.</p>
+                        <span>$499.99</span>
+                        <button class="addToCart">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/speaker.jpg" alt="Bluetooth Speaker">
+                        <h3>Bluetooth Speaker</h3>
+                        <p>Wireless speaker with high-quality sound.</p>
+                        <span>$59.99</span>
+                        <button class="addToCart">Add to Cart</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>RECIO's Group &copy; 2025 | ITEW2 - Client/Server Side Scripting</p>
+        </footer>
+
+        <script src="product.js"></script>
+    </body>
+</html>

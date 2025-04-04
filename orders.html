@@ -1,221 +1,58 @@
-<!-- 
-    Project Made by Recio's Group for MIDTERM GROUP RESEARCH PROJECT ITEW2 CLIENT/SERVER SIDE SCRIPTING
-
-    Group Members:
-
-    Recio, Joaquin Aaron P. - Group Leader/Lead Programmer
-    Alvarez, Kian Clark P.
-    Cantalejo, Blessreal S.
-    Catchuela, John Eric L.
-    Dela Cruz, Kim Francis O.
-    Del Mundo, Klarenz V.
-    Dela Torre, Mark Anthony A.
-    Estrella, Prince Rodni T. - Co-Lead Programmer
-    Fortin, Cheryll Anne V.
-    Rosario, Al-jay C.
-
-    RECIO's Group © 2025 | ITEW2 - Client/Server Side Scripting
--->
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Reshie | Orders</title>
+        <title>Level Up Market | My Orders</title>
 
-        <!-- Favicon -->
-        <link rel="android-chrome" sizes="512x512" href="/assets/favicon_io/android-chrome-512x512.png">
-        <link rel="android-chrome" sizes="192x192" href="/assets/favicon_io/android-chrome-192x192.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon_io/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io/favicon-16x16.png">
-        <link rel="icon" type="image/x-icon" href="/assets/favicon_io/favicon.ico">
-        <link rel="manifest" href="/assets/favicon_io/site.webmanifest">
+        <!-- External CSS Integrated -->
+        <link rel="stylesheet" href="orders.css">
 
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Favicon Configuration - Multiple Sizes for Different Devices -->
+        <link rel="android-chrome" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
+        <link rel="android-chrome" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
+        <link rel="manifest" href="favicon_io/site.webmanifest">
 
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-        <!-- External CSS Link -->
-        <link rel="stylesheet" href="css/orders.css">
-
-        <!-- Google Fonts Integration -->
+        <!-- Google Fonts - Poppins Family -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-        <!-- Integrating jQuery -->
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     </head>
     <body>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg" style="background-color: #013220;">
-            <div class="container">
-                <a class="navbar-brand text-white" href="index.html">
-                    <img src="assets/favicon_io/android-chrome-192x192.png" alt="Reshie Logo" width="30">
-                    <span class="text-white">Reshie</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="products.html">Products</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="about.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Orders Section -->
-        <main class="container py-5">
-            <h1 class="mb-4">My Orders</h1>
+        <header>
+            <!-- Site Branding -->
+            <h1>LevelUp Market</h1>
+            <p style="text-align: center;">Shop Smarter, Live Better!</p>
             
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <input type="search" class="form-control" id="order-search" placeholder="Search orders...">
-                </div>
-                <div class="col-md-3">
-                    <select class="form-select" id="order-status-filter">
-                        <option value="">All Orders</option>
-                        <option value="processing">Processing</option>
-                        <option value="shipped">Shipped</option>
-                        <option value="delivered">Delivered</option>
-                        <option value="returned">Returned</option>
-                        <option value="cancelled">Cancelled</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select class="form-select" id="order-date-filter">
-                        <option value="">All Time</option>
-                        <option value="30">Last 30 Days</option>
-                        <option value="90">Last 3 Months</option>
-                        <option value="180">Last 6 Months</option>
-                        <option value="365">Last Year</option>
-                    </select>
-                </div>
-            </div>
+            <nav>
+                <ul>
+                    <li><a href="user.html">Home</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="orders.html" class="active">Orders</a></li>
+                    <li><a href="checkout.html">Checkout</a></li>
+                    <li><a href="login.html" id="loginBtn">Login</a></li>
+                </ul>
+            </nav>
+        </header>
 
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Total</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="orders-list">
-                    <!-- Orders will be dynamically added here -->
-                </tbody>
-            </table>
+        <main>
+            <section id="orders-section">
+                <h2>My Orders</h2>
+                <div id="orders-list">
+                    <!-- Orders will be dynamically inserted here -->
+                </div>
+            </section>
         </main>
 
-
-        <!-- Footer Section -->
         <footer>
-            <div class="container">
-                <div class="footer-columns">
-                    <div class="footer-column">
-                        <h3>Reshie</h3>
-                        <p>Your one-stop destination for all your shopping needs.</p>
-                    </div>
-
-                    <div class="footer-column">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="products.html">Products</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h3>Connect With Us</h3>
-                        <div class="social-links">
-                            <a href="#" class="social-link">Facebook</a>
-                            <a href="#" class="social-link">Twitter</a>
-                            <a href="#" class="social-link">Instagram</a>
-                        </div>
-                    </div>
-
-                    <div class="footer-column">
-                        <h3>Contact Info</h3>
-                        <address>
-                            Pamantasan ng Cabuyao,
-                            Banay-Banay, City of Cabuyao, Laguna 4025,
-                            Phone: (+63) 123 456 7890
-                            Email: reshie@gmail.com
-                        </address>
-                    </div>
-                </div>
-
-                <div class="copyright">&copy; 2025 Reshie | All Rights Reserved</div>
-            </div>
+            <p>RECIO's Group &copy; 2025 | ITEW2 - Client/Server Side Scripting</p>
         </footer>
 
-        <!-- Order Detail Modal -->
-        <div class="modal" id="order-detail-modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-
-                <div id="order-detail-container">
-                    <!-- Order details will be dynamically added here -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Return Request Modal -->
-        <div class="modal" id="return-modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-
-                <h2>Request Return</h2>
-
-                <form id="return-form">
-                    <div class="form-group">
-                        <label for="return-reason">Reason of Return: </label>
-                        <select id="rerturn-reason" required>
-                            <option value="">--- Select a Reason ---</option>
-                            <option value="wrong-item">Wrong item received</option>
-                            <option value="defective">Item is defective</option>
-                            <option value="damaged">Item was damaged</option>
-                            <option value="not_as_described">Item not as described</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group" id="other-reason-container" style="display: none;">
-                        <label for="other-reason">Please Specify: </label>
-                        <textarea id="other-reason"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="return-comments">Additional Comments: </label>
-                        <textarea id="return-comments"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit">Submit Return Request</button>
-                    </div>
-
-                    <div class="form-feedback" id="return-feedback"></div>
-                </form>
-            </div>
-        </div>
-
-        <!-- External JavaScript Files Implemented -->
-        <script src="js/#"></script> <!-- Integrate app.js -->
-        <script src="js/#"></script> <!-- Integrate auth.js -->
-        <script src="js/#"></script> <!-- Integrate orders.js -->
+        <script src="order.js"></script>
     </body>
 </html>

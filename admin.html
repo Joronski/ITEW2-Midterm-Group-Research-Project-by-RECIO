@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LevelUp Market | Admin Dashboard</title>
+
+        <!-- External CSS Integration -->
+        <link rel="stylesheet" href="admin.css">
+
+        <!-- Favicon Configuration - Multiple Sizes for Different Devices -->
+        <link rel="android-chrome" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
+        <link rel="android-chrome" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+        <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
+        <link rel="manifest" href="favicon_io/site.webmanifest">
+
+        <!-- Google Fonts - Poppins Family -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+        <!-- jQuery Integration -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <section class="container">
+            <h1 class="title">LevelUp Market | Admin Dashboard</h1>
+
+            <!-- User Management Section -->
+            <div class="card">
+                <h2 class="subtitle">User Management</h2>
+
+                <div class="form">
+                    <input type="text" id="adminSearchUser" class="input" placeholder="Search User...">
+                    <div id="userList" class="form">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tblUsers">
+                                <!-- Data will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button id="searchBtn" class="btn">Search User</button>
+            </div>
+            
+
+            <!-- Order History Section -->
+            <div class="reshie-card">
+                <h2 class="reshie-subtitle">Order History</h2>
+
+                <div id="orderHistory" class="reshie-form">
+                    <!-- Dynamic Order History Implementation -->
+                </div>
+            </div>
+
+            <!-- Admin Settings -->
+            <div class="card">
+                <h2 class="subtitle">Admin Settings</h2>
+                <button id="clearStorageBtn" class="btn">Clear Storage</button>
+            </div>
+
+            <!-- Sign Out Button -->
+            <div class="signout-btn">
+                <button id="signOutBtn" class="signout">Sign Out</button>
+            </div>
+        </section>
+
+        <script src="assets/js/user-management.js"></script>
+        <script src="admin.js"></script>
+    </body>
+</html>
