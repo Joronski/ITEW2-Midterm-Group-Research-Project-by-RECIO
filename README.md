@@ -17,3 +17,4 @@ Fortin, Cheryll Anne V. <br>
 Rosario, Al-jay C.
 
 Documentation Video: https://youtu.be/FVWwMApFidY?si=pQoq2hY17AVGS_WY
+Full Documentation: https://drive.google.com/file/d/1z7V4UaErDu83bHuoPLsi782wQDAq_X9U/view
