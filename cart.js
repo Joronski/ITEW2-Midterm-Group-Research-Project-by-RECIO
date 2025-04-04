@@ -67,7 +67,44 @@ function proceedToCheckout() {
     window.location.href = "orders.html";
 }
 
+// Toggle hamburger menu
+function toggleMenu() {
+    const nav = document.getElementById('main-nav');
+    nav.classList.toggle('active');
+}
+
+// Close menu when clicking a menu item (for mobile)
+function setupMobileNavigation() {
+    const menuItems = document.querySelectorAll('nav ul li a');
+    const nav = document.getElementById('main-nav');
+    
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (window.innerWidth <= 576) {
+                nav.classList.remove('active');
+            }
+        });
+    });
+}
+
 // Call loadCartItems() when the page loads
 document.addEventListener("DOMContentLoaded", function () {
     loadCartItems();
+    
+    // Setup hamburger menu
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', toggleMenu);
+    }
+    
+    // Setup mobile navigation
+    setupMobileNavigation();
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        const nav = document.getElementById('main-nav');
+        if (window.innerWidth > 576 && nav.classList.contains('active')) {
+            nav.classList.remove('active');
+        }
+    });
 });

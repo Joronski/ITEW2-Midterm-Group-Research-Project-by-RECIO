@@ -28,20 +28,28 @@
             <h1>LevelUp Market</h1>
             <p style="text-align: center;">Shop Smarter, Live Better!</p>
             
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburgerBtn">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+            
             <nav>
-                <ul>
-                    <li><a href="user.html">Home</a></li>
-                    <li><a href="product.html" class="active">Products</a></li>
-                    <li><a href="cart.html">Cart</a></li>
-                    <li><a href="orders.html">Orders</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
-                    <li><a href="login.html" id="loginBtn">Login</a></li>
-
-                    <li>
+                <div class="nav-container">
+                    <ul id="navMenu">
+                        <li><a href="user.html">Home</a></li>
+                        <li><a href="product.html" class="active">Products</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="orders.html">Orders</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="login.html" id="loginBtn">Login</a></li>
+                    </ul>
+                    <div class="search-container">
                         <input type="text" id="searchBar" placeholder="Search products...">
                         <button id="searchBtn">Search</button>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </nav>
         </header>
 

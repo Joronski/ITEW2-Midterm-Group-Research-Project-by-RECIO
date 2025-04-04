@@ -1,6 +1,40 @@
 document.addEventListener("DOMContentLoaded", function () {
     const orderItems = document.getElementById("order-items");
     const orderTotal = document.getElementById("order-total");
+    const hamburgerMenu = document.getElementById("hamburger-menu");
+    const navMenu = document.getElementById("nav-menu");
+
+    // Toggle hamburger menu
+    hamburgerMenu.addEventListener("click", function() {
+        hamburgerMenu.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    });
+
+    // Close menu when clicking on a menu item (for mobile)
+    document.querySelectorAll("#nav-menu a").forEach(link => {
+        link.addEventListener("click", function() {
+            hamburgerMenu.classList.remove("active");
+            navMenu.classList.remove("active");
+        });
+    });
+
+    // Close menu when clicking outside (for mobile)
+    document.addEventListener("click", function(event) {
+        if (!event.target.closest("#nav-menu") && 
+            !event.target.closest("#hamburger-menu") && 
+            navMenu.classList.contains("active")) {
+            hamburgerMenu.classList.remove("active");
+            navMenu.classList.remove("active");
+        }
+    });
+
+    // Check window resize and reset menu state
+    window.addEventListener("resize", function() {
+        if (window.innerWidth > 576 && navMenu.classList.contains("active")) {
+            hamburgerMenu.classList.remove("active");
+            navMenu.classList.remove("active");
+        }
+    });
 
     // Get multiple orders from localStorage
     let orders = JSON.parse(localStorage.getItem("orders")) || [];

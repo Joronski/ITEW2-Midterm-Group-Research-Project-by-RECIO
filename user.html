@@ -29,25 +29,38 @@
             <p style="text-align: center;">Shop Smarter, Live Better!</p>
 
             <nav>
-                <ul>
-                    <li><a href="user.html">Home</a></li>
-                    <li><a href="product.html">Products</a></li>
-                    <li><a href="cart.html">Cart</a></li>
-                    <li><a href="orders.html">Orders</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
-                    <li><a href="login.html" id="loginBtn">Login</a></li>
-                    <li>
-                        <input type="text" id="searchBar" placeholder="Search products...">
-                        <button id="searchBtn">Search</button>
-                    </li>
-                </ul>
+                <div class="nav-container">
+                    <div class="nav-top">
+                        <div class="menu-brand">
+                            <button class="hamburger" id="hamburger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+
+                        <div class="search-container">
+                            <input type="text" id="searchBar" placeholder="Search products...">
+                            <button id="searchBtn">Search</button>
+                        </div>
+                    </div>
+                    
+                    <ul id="nav-menu">
+                        <li><a href="user.html">Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="orders.html">Orders</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="login.html" id="loginBtn">Login</a></li>
+                    </ul>
+                </div>
             </nav>
         </header>
 
         <section id="hero">
             <h2>Shop Smarter, Shop Better</h2>
             <p>Discover the best deals on top products today.</p>
-            <button class="shopNow">Shop Now</button>
+            <button class="shopNow"><a href="login.html" style="color: #fff; text-decoration: none;">Shop Now</a></button>
         </section>
 
         <main>

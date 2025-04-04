@@ -75,8 +75,48 @@ function searchProducts() {
     displayProducts(filteredProducts);
 }
 
-document.getElementById("searchBar").addEventListener("input", searchProducts);
-document.getElementById("searchBtn").addEventListener("click", searchProducts);
+// Hamburger Menu Toggle
+function toggleMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.toggle('active');
+    
+    // Toggle hamburger animation
+    const hamburgerBtn = document.getElementById('hamburger');
+    hamburgerBtn.classList.toggle('active');
+}
 
-// Initialize Page
-displayProducts();
+// Event Listeners
+document.addEventListener('DOMContentLoaded', function() {
+    // Search events
+    document.getElementById("searchBar").addEventListener("input", searchProducts);
+    document.getElementById("searchBtn").addEventListener("click", searchProducts);
+    
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
+    }
+    
+    // Close menu when clicking on a link (mobile)
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            const windowWidth = window.innerWidth;
+            if (windowWidth <= 768) {
+                toggleMenu();
+            }
+        });
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        const navMenu = document.getElementById('nav-menu');
+        if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            document.getElementById('hamburger').classList.remove('active');
+        }
+    });
+    
+    // Initialize Page
+    displayProducts();
+});

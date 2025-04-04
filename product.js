@@ -76,9 +76,45 @@ function searchProducts() {
     displayProducts(filteredProducts);
 }
 
-// Event Listeners for Search
+// Hamburger Menu Toggle Functionality
+function toggleHamburgerMenu() {
+    const hamburger = document.getElementById("hamburgerBtn");
+    const navMenu = document.getElementById("navMenu");
+    
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("show");
+}
+
+// Event Listeners
 document.getElementById("searchBar").addEventListener("input", searchProducts);
 document.getElementById("searchBtn").addEventListener("click", searchProducts);
+document.getElementById("hamburgerBtn").addEventListener("click", toggleHamburgerMenu);
+
+// Close mobile menu when clicking a navigation link
+document.querySelectorAll("nav ul li a").forEach(link => {
+    link.addEventListener("click", () => {
+        const navMenu = document.getElementById("navMenu");
+        const hamburger = document.getElementById("hamburgerBtn");
+        
+        // Only close if it's mobile view (hamburger is visible)
+        if (window.getComputedStyle(hamburger).display !== "none") {
+            navMenu.classList.remove("show");
+            hamburger.classList.remove("active");
+        }
+    });
+});
 
 // Initialize Page
 displayProducts();
+
+// Check if window is resized and handle navigation display accordingly
+window.addEventListener("resize", () => {
+    const hamburger = document.getElementById("hamburgerBtn");
+    const navMenu = document.getElementById("navMenu");
+    
+    // If screen size is larger than mobile breakpoint, ensure menu is visible
+    if (window.innerWidth > 768) {
+        navMenu.classList.remove("show");
+        hamburger.classList.remove("active");
+    }
+});

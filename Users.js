@@ -29,7 +29,7 @@ class User {
     setPassword(newPassword) {
         this.password = newPassword;
     }
-a
+    
     // Getter and Setter for role
     getRole() {
         return this.role;

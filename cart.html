@@ -21,6 +21,10 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+        
+        <!-- Font Awesome for hamburger icon -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     </head>
     <body>
         <header>
@@ -28,7 +32,12 @@
             <h1>LevelUp Market</h1>
             <p style="text-align: center;">Shop Smarter, Live Better!</p>
 
-            <nav>
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburger-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav id="main-nav">
                 <ul>
                     <li><a href="user.html">Home</a></li>
                     <li><a href="product.html">Products</a></li>

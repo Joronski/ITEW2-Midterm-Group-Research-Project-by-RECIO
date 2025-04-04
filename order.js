@@ -5,13 +5,11 @@ function loadOrders() {
 
     ordersList.innerHTML = ""; // Clear previous content
 
-    // If there are no orders, display a message
     if (orders.length === 0) {
         ordersList.innerHTML = "<p>No orders yet. Proceed with checkout to place an order.</p>";
         return;
     }
 
-    // Render each order item
     orders.forEach(item => {
         ordersList.innerHTML += `
             <div class="order-item">
@@ -50,7 +48,59 @@ function cancelOrder(itemId) {
     }
 }
 
-// Call loadOrders() when the page loads
+// Hamburger menu functionality
+function setupHamburgerMenu() {
+    const hamburgerMenu = document.getElementById("hamburger-menu");
+    const navMenu = document.getElementById("nav-menu");
+
+    if (hamburgerMenu) {
+        // Toggle hamburger menu
+        hamburgerMenu.addEventListener("click", function() {
+            hamburgerMenu.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        // Close menu when clicking on a menu item (for mobile)
+        document.querySelectorAll("#nav-menu a").forEach(link => {
+            link.addEventListener("click", function() {
+                hamburgerMenu.classList.remove("active");
+                navMenu.classList.remove("active");
+            });
+        });
+
+        // Close menu when clicking outside (for mobile)
+        document.addEventListener("click", function(event) {
+            if (!event.target.closest("#nav-menu") && 
+                !event.target.closest("#hamburger-menu") && 
+                navMenu.classList.contains("active")) {
+                hamburgerMenu.classList.remove("active");
+                navMenu.classList.remove("active");
+            }
+        });
+
+        // Check window resize and reset menu state
+        window.addEventListener("resize", function() {
+            if (window.innerWidth > 768 && navMenu.classList.contains("active")) {
+                hamburgerMenu.classList.remove("active");
+                navMenu.classList.remove("active");
+            }
+        });
+    }
+}
+
+// Call functions when the page loads
 document.addEventListener("DOMContentLoaded", function () {
     loadOrders();
+    setupHamburgerMenu();
 });
+
+// Function to save an order and associate it with a user
+function saveOrder(userId, order) {
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    
+    order.userId = userId; // Attach user ID to the order
+    order.id = orders.length + 1; // Assign a unique order ID
+    
+    orders.push(order);
+    localStorage.setItem("orders", JSON.stringify(orders));
+}

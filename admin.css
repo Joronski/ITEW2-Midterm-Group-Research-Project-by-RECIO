@@ -52,6 +52,29 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+.reshie-card {
+    background-color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reshie-subtitle {
+    text-align: center;
+    color: #013220;
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.reshie-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .input {
     width: 100%;
     padding: 12px;
@@ -169,6 +192,78 @@ th {
     background-color: #f2f2f2;
 }
 
+/* Mobile Header and Navigation */
+.admin-header {
+    display: none;
+    background-color: #007bff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.mobile-title {
+    color: white;
+    margin: 0;
+    font-size: 20px;
+}
+
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.mobile-nav {
+    display: none;
+    background-color: #007bff;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    padding: 0;
+}
+
+.nav-item a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-item a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-signout {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    background-color: #FF4C4C;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 /* Responsive Layout */
 
 /* Desktop */
@@ -180,11 +275,14 @@ th {
     .title {
         font-size: 28px;
     }
-    .subtitle {
+    .subtitle, .reshie-subtitle {
         font-size: 18px;
     }
     .btn, .signout {
         font-size: 14px;
+    }
+    .admin-header {
+        display: none;
     }
 }
 
@@ -193,18 +291,36 @@ th {
     .container {
         width: 95%;
         padding: 15px;
+        margin: 30px auto;
     }
     .title {
         font-size: 24px;
     }
-    .subtitle {
+    .subtitle, .reshie-subtitle {
         font-size: 16px;
     }
     .btn, .signout {
         font-size: 14px;
         padding: 10px;
     }
-    .responsive-table th, .responsive-table td {
+    .admin-header {
+        display: flex;
+    }
+    .hamburger-menu {
+        display: block;
+    }
+    
+    .responsive-table {
+        overflow-x: auto;
+        display: block;
+        width: 100%;
+    }
+    
+    table {
+        min-width: 500px;
+    }
+    
+    th, td {
         padding: 8px;
         font-size: 12px;
     }
@@ -212,22 +328,44 @@ th {
 
 /* Mobile */
 @media (max-width: 480px) {
+    .admin-header {
+        display: flex;
+    }
+    .hamburger-menu {
+        display: block;
+    }
     .container {
         width: 100%;
         padding: 10px;
+        margin: 15px auto;
+        border-radius: 0;
     }
     .title {
         font-size: 20px;
+        display: none;
     }
-    .subtitle {
+    .subtitle, .reshie-subtitle {
         font-size: 14px;
     }
     .btn, .signout {
         font-size: 12px;
         padding: 8px;
     }
-    .responsive-table th, .responsive-table td {
+    .card, .reshie-card {
+        padding: 15px 10px;
+    }
+    
+    th, td {
         padding: 5px;
         font-size: 10px;
+    }
+    
+    .edit-btn, .save-btn, .delete-btn {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+    
+    .signout-btn {
+        margin-bottom: 20px;
     }
 }
